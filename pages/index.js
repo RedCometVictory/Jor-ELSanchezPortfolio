@@ -1,69 +1,188 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Image from 'next/image';
+import NavBar from "../components/NavBar";
+import Card from '../components/UI/Card';
+// import DevIcon from "devicon-react-svg";
 
-export default function Home() {
+import CSS from '../components/svgs/icons/CSS';
+import Express from '../components/svgs/icons/Express';
+import Git from '../components/svgs/icons/Git';
+import Gulp from '../components/svgs/icons/Gulp';
+import Html from '../components/svgs/icons/Html';
+import JavaScript from '../components/svgs/icons/JavaScript';
+import Laravel from '../components/svgs/icons/Laravel';
+import Markdown from '../components/svgs/icons/Markdown';
+import MongoDB from '../components/svgs/icons/MongoDB';
+import MySQL from '../components/svgs/icons/MySQL';
+import NextJS from '../components/svgs/icons/NextJS';
+import NodeJS from '../components/svgs/icons/NodeJS';
+import PHP from '../components/svgs/icons/PHP';
+import PostgreSQL from '../components/svgs/icons/PostgreSQL';
+import ReactJS from '../components/svgs/icons/ReactJS';
+import Redux from '../components/svgs/icons/Redux';
+import SASS from '../components/svgs/icons/SASS';
+import TypeScript from '../components/svgs/icons/TypeScript';
+import Webpack from '../components/svgs/icons/Webpack';
+
+import screenshot_01 from "../public/images/BlaZr-Gear-01.png";
+import screenshot_02 from "../public/images/job-board-newt-01.png";
+import screenshot_03 from "../public/images/zuitblog-01.png";
+import screenshot_04 from "../public/images/SquadUp-Social-01.png";
+import screenshot_05 from "../public/images/SquadUp-Social-02.png";
+import screenshot_06 from "../public/images/SquadUp-Social-03.png";
+import screenshot_07 from "../public/images/SquadUp-Social-04.png";
+import screenshot_08 from "../public/images/SquadUp-Social-05.png";
+
+const Home = () => {
+  let cards = [
+    {
+      title: "Blazr Gear",
+      type: "E-Commerce",
+      image: screenshot_01,
+      tech: ["React", "Redux-Toolkit", "PostgreSQL", "ExpressJS", "JWT", "StripeAPI", "CloudinaryAPI", "Mapbox", "SendGrid", "NodeMailer"],
+      description: "Built upon the PERN stack, Blazr Gear is an all puspose e-commerce store. Utilized JWTs for authenticating users and setting authorization guards to certain pages (where only administrators could access). Nodemailer and SendGrid is used to email a user of a successful purchase or when an order has been refunded. This email service is used to reset a user's password via sending a token to a user's email. Added the option for users to save cards they used in their purchases via the StripeAPI. Admin users can review orders, create and update products, and edit admin permissions for other users."
+    },
+    {
+      title: "Newt - Simple Job Search",
+      type: "Job Board via Public API",
+      image: screenshot_02,
+      tech: ["NextJS" , "React Hooks", "FindworkAPI"],
+      description: "Newt, a simple job board that fetches data from the Findwork public API. This is the first application I built using NextJS. This project was a means of learning some of the NextJS frameworks base features such as Server Side Rendering."
+    },
+    {
+      title: "Zuit",
+      type: "Blog",
+      image: screenshot_03,
+      tech: ["NextJS" , "React Hooks", "EditorJS", "MongoDB", "Mongoose"],
+      description: "Zuit - a blog where users can share genral thoughs, ideas and more importantly code snippets with one another. React useReducer and useContext is used to keep track of state across all components in the app. Users can change the color of the blog from an assortment of themes. Authorization and authentication is kept inside of a cookie.",
+    },
+    {
+      title: "SquadUp Social",
+      type: "Social Media",
+      image: screenshot_04,
+      tech: ["React", "Redux", "PostgreSQL", "ExpressJS", "JWT", "CloudinaryAPI"],
+      description: "First 'large' fullstack project I ever worked on without the aid of a video tutorial. This project allowed me to break out of the dreaded 'Tutorial Hell' once and for all. SquadUp is a social media site that allows users to share images and to send simple communications.",
+    },
+    {
+      title: "The Den",
+      type: "Restaurant",
+      image: screenshot_05,
+      tech: ["Gatsby", "Markdown", "JSON", "JamStack", "JWT", "CloudinaryAPI", "EmailJS"],
+      description: "Designed for a restauraunt here in the heart of California. A redesign of a site that previously looked awful and could not work correctly in mobile browsers. At the time of rebuilding the site I was looking into static websites (JamStack). I chose to use GatsbyJS over NextJS, but I'd soon find out that I would not like the plugin system used by Gatsby all that much, but I did love the built in support for GraphQL which made fetching static data from JSON and Markdown files a breeze.",
+    }
+  ];
   return (
-    <div className={styles.container}>
+    <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Jor-EL&apos;s Portfolio | Home</title>
         <meta name="description" content="Generated by create next app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <NavBar/>
+      <main className="main">
+        <div className="">
+          <section className="hero">
+            <h2 className='hero__jumbo-text'>A Front End developer with FullStack Experience</h2>
+{/* image goes here */}
+            <div className="hero__img-container">
+              <span>JS</span>
+            </div>
+            <h1 className="hero__name">
+              Jor-EL Sanchez
+            </h1>
+          </section>
+          <section className="skills">
+            <div className="skills__content">
+              <h2 className="skills__header">Skilled In</h2>
+              <div className="skills__desc">
+                <p>Skilled in the following listed tech, as well as - JSON, Cloudinary, public APIs, Stripe, Fetch, and Axios.</p>
+              </div>
+              <div className="skills__icon-container">
+                <CSS/>
+                <Express/>
+                <Git/>
+                <Html/>
+                <MongoDB/>
+                <JavaScript/>
+                <Markdown/>
+                <MySQL/>
+                <NextJS/>
+                <NodeJS/>
+                <PostgreSQL/>
+                <ReactJS/>
+                <Redux/>
+                <SASS/>
+              </div>
+            </div>
+            <div className="skills__content">
+              <h2 className="skills__header">Familiar / Diving Into</h2>
+              <div className="skills__desc">
+                <p>Currently learning or somewhat familiar with the following tech (such as Photoshop).</p>
+              </div>
+              <div className="skills__icon-container">
+                <Laravel/>
+                <PHP/>
+                <TypeScript/>
+              </div>
+            </div>
+            <div className="skills__content">
+              <h2 className="skills__header">Other Stuff I Know</h2>
+              <div className="skills__desc">
+                <p>Other tech I&apos;ve worked with: SendGrid, EmailJS and more.</p>
+              </div>
+              <div className="skills__icon-container">
+            <Gulp/>
+            <Webpack/>
+              </div>
+            </div>
+          </section>
+          <section className="projects">
+            <h2 className="projects__header">
+              Portfolio Projects
+            </h2>
+            <div className="projects__list">
+              {cards.map((card, index) => (
+                <div className="projects__list-item" key={index}>
+                  <Card card={card} />
+                </div>
+              ))}
+            </div>
+            <article className="projects__card-proj">
+              <header className="projects__card-header">
+                <h3>Title of Project</h3>
+                {/* <Image src="" alt="project screenshot"></Image> */}
+              </header>
+              <div className="projects__card-links"></div>
+              <div className="projects__card-desc"></div>
+            </article>
+          </section>
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+      <footer className="">
+        {/* place form emailjs for contaccting me */}
+        {/* provide: subject line, message */}
+        Want to contact me?
+        <form action="" className="footer__form">
+          <div className="form__group">
+            <label htmlFor="name"></label>
+            <input type="text" name='name'/>
+          </div>
+          <div className="form__group">
+            <label htmlFor="email"></label>
+            <input type="email" name='email'/>
+          </div>
+          <div className="form__group">
+            <label htmlFor="subject"></label>
+            <input type="text" name='subject'/>
+          </div>
+          <div className="form__group">
+            <label htmlFor="message"></label>
+            <textarea type="text" name='message'/>
+          </div>
+        </form>
       </footer>
     </div>
   )
 }
+export default Home;
