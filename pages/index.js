@@ -34,27 +34,30 @@ import screenshot_07 from "../public/images/SquadUp-Social-04.png";
 import screenshot_08 from "../public/images/SquadUp-Social-05.png";
 
 const Home = () => {
+  const handleContactForm = () => {
+    console.log("Form submitted!Z")
+  };
   let cards = [
     {
       title: "Blazr Gear",
       type: "E-Commerce",
       image: screenshot_01,
-      tech: ["React", "Redux-Toolkit", "PostgreSQL", "ExpressJS", "JWT", "StripeAPI", "CloudinaryAPI", "Mapbox", "SendGrid", "NodeMailer"],
-      description: "Built upon the PERN stack, Blazr Gear is an all puspose e-commerce store. Utilized JWTs for authenticating users and setting authorization guards to certain pages (where only administrators could access). Nodemailer and SendGrid is used to email a user of a successful purchase or when an order has been refunded. This email service is used to reset a user's password via sending a token to a user's email. Added the option for users to save cards they used in their purchases via the StripeAPI. Admin users can review orders, create and update products, and edit admin permissions for other users."
+      tech: ["React", "Redux-Toolkit", "PostgreSQL", "ExpressJS", "JWT", "StripeAPI", "CloudinaryAPI", "MapboxAPI", "SendGrid", "NodeMailer"],
+      description: "Blazr Gear allows users to pay with Stripe. JWTs are used for authenticating and setting authorization guards for admin access. Nodemailer and SendGrid is used to email a user of a successful purchase or when an order has been refunded. Additionally, this email service is used to reset a user's password. Users have the option to save cards they used in their purchases via the StripeAPI. Admins can review orders, create and update products, and edit admin permissions for other users."
     },
     {
       title: "Newt - Simple Job Search",
       type: "Job Board via Public API",
       image: screenshot_02,
       tech: ["NextJS" , "React Hooks", "FindworkAPI"],
-      description: "Newt, a simple job board that fetches data from the Findwork public API. This is the first application I built using NextJS. This project was a means of learning some of the NextJS frameworks base features such as Server Side Rendering."
+      description: "Newt, a simple job board that fetches data from the Findwork public API. This is the first application I built using NextJS. This project was a means of learning some of the base features such as Server Side Rendering."
     },
     {
       title: "Zuit",
       type: "Blog",
       image: screenshot_03,
       tech: ["NextJS" , "React Hooks", "EditorJS", "MongoDB", "Mongoose"],
-      description: "Zuit - a blog where users can share genral thoughs, ideas and more importantly code snippets with one another. React useReducer and useContext is used to keep track of state across all components in the app. Users can change the color of the blog from an assortment of themes. Authorization and authentication is kept inside of a cookie.",
+      description: "Zuit - a blog where users can share general thoughts, ideas and more importantly - code snippets with one another. React useReducer and useContext is used to keep track of state across all components in the app. Users can change the color of the blog from an assortment of themes. Authorization and authentication is kept inside of a cookie.",
     },
     {
       title: "SquadUp Social",
@@ -82,7 +85,7 @@ const Home = () => {
       <main className="main">
         <div className="">
           <section className="hero">
-            <h2 className='hero__jumbo-text'>A Front End developer with FullStack Experience</h2>
+            <h2 className='hero__jumbo-text'>A Front End developer with Back End experience</h2>
 {/* image goes here */}
             <div className="hero__img-container">
               <span>JS</span>
@@ -93,21 +96,21 @@ const Home = () => {
           </section>
           <section className="skills">
             <div className="skills__content">
-              <h2 className="skills__header">Skilled In</h2>
+              <h2 className="skills__header">Primary Skills</h2>
               <div className="skills__desc">
-                <p>Skilled in the following listed tech, as well as - JSON, Cloudinary, public APIs, Stripe, Fetch, and Axios.</p>
+                <p>Skilled in the following tech, as well as - JSON, Cloudinary, public APIs, Stripe, Fetch, and Axios.</p>
               </div>
               <div className="skills__icon-container">
-                <CSS/>
+                {/* <CSS/> */}
                 <Express/>
-                <Git/>
-                <Html/>
+                {/* <Git/> */}
+                {/* <Html/> */}
                 <MongoDB/>
                 <JavaScript/>
                 <Markdown/>
                 <MySQL/>
                 <NextJS/>
-                <NodeJS/>
+                {/* <NodeJS/> */}
                 <PostgreSQL/>
                 <ReactJS/>
                 <Redux/>
@@ -147,42 +150,87 @@ const Home = () => {
                 </div>
               ))}
             </div>
-            <article className="projects__card-proj">
-              <header className="projects__card-header">
-                <h3>Title of Project</h3>
-                {/* <Image src="" alt="project screenshot"></Image> */}
-              </header>
-              <div className="projects__card-links"></div>
-              <div className="projects__card-desc"></div>
-            </article>
           </section>
         </div>
       </main>
-
-      <footer className="">
-        {/* place form emailjs for contaccting me */}
-        {/* provide: subject line, message */}
-        Want to contact me?
-        <form action="" className="footer__form">
-          <div className="form__group">
-            <label htmlFor="name"></label>
-            <input type="text" name='name'/>
+      <footer className="footer">
+        <div className="footer__container">
+          <div className="footer__contact">
+            <h3>Want to contact me?</h3>
+            <br />
+            <div className="">
+              <h2>E-Mail:</h2>
+              <div className="email-address">
+                <p>acemiranda13@att.net</p>
+              </div>
+            </div>
           </div>
-          <div className="form__group">
-            <label htmlFor="email"></label>
-            <input type="email" name='email'/>
-          </div>
-          <div className="form__group">
-            <label htmlFor="subject"></label>
-            <input type="text" name='subject'/>
-          </div>
-          <div className="form__group">
-            <label htmlFor="message"></label>
-            <textarea type="text" name='message'/>
-          </div>
-        </form>
+          <form onSubmit={handleContactForm} className="footer__form form">
+            <div className="form__group email">
+              <input className='form__input' type="email" name='email' placeholder='Your E-mail' required/>
+              <span className="underline"></span>
+            </div>
+            <div className="form__group subject">
+              <input className='form__input' type="text" name='subject' placeholder='Subject' required/>
+              <span className="underline"></span>
+            </div>
+            <div className="form__group text">
+              <textarea className='form__textarea' type="text" name='message' placeholder='Message' required/>
+            </div>
+            <div className="footer__form-submit"></div>
+          </form>
+        </div>
+        <div className="footer__copyright">
+          <h6>Jor-EL Sanchez &copy; 2022</h6>
+        </div>
       </footer>
     </div>
   )
 }
 export default Home;
+
+/*
+<div className="contact__section">
+          <form className="form" onSubmit={sendEmail} data-netlify-recaptcha="true" data-netlify="true">
+            <div className="form__item hidden">
+              <input type="hidden" name="subject" className="form__input" value="Catering Quote" required/>
+            </div>
+            <div className="form__item">
+              <label htmlFor="name" className="form__label">
+                Your Name<span className="req">*</span>
+              </label>
+              <input type="text" name="name" className="form__input" placeholder="First Name (Last Name optional)" required/>
+            </div>
+            <div className="form__item">
+              <label htmlFor="phone" className="form__label">
+                Phone Number
+              </label>
+              <input type="tel" name="phone" className="form__input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890"/>
+            </div>
+            <div className="form__item">
+              <label htmlFor="email" className="form__label">
+                Your Email Address<span className="req">*</span>
+              </label>
+              <input type="email" name="email" className="form__input" placeholder="email@mail.com" required/>
+            </div>
+            <div className="form__item">
+              <label htmlFor="numpeople" className="form__label">
+                How Many People?
+              </label>
+              <input type="number" name="numpeople" className="form__input" />
+            </div>
+            <div className="form__item">
+              <label htmlFor="message" className="form__label">
+                Message<span className="req">*</span>
+              </label>
+              <textarea name="message" className="form__textarea" id="" cols="30" rows="10" placeholder="Write your message." required></textarea>
+            </div>
+            <div className="form__item">
+              <div data-netlify-recaptcha="true" className="contact__captcha"></div>
+            </div>
+            <div className="form__footer">
+              <input type="submit" className="btn btn-primary ms-mr ms-mt" value="Send Message" />
+            </div>
+          </form>
+        </div>
+*/
