@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Head from 'next/head';
 import Image from 'next/image';
 import emailjs from "emailjs-com";
@@ -42,39 +42,31 @@ const YOUR_TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
 const YOUR_USER_ID = process.env.NEXT_PUBLIC_USER_ID;
 const CAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-const initialState = {
-  subject: '',
-  email: '',
-  message: '',
-};
-
 const Home = () => {
-  const [formData, setFormData] = useState(initialState);
-  // const [menu, setMenu] = useState(true);
-  // const [buttonText, setButtonText] = useState("Sides");
   const [validEmail, iSValidEmail] = useState(false);
-  const { subject, email, message } = formData;
-  
-    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
-  // const params = {
-  //   ...formData,
-  //   'g-recaptcha-response': formData
-  // }
+  const formRef = useRef();
+  const captchaRef = useRef();
 
-  const handleContactForm = () => {
-    console.log("Form submitted!")
-  };
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+  
   function sendEmail(e) {
-  e.preventDefault();
-  // email service udes, id of template, formdata, 
-  emailjs.sendForm(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, formData, YOUR_USER_ID)
-    .then((result) => {
-        console.log(result.text);
-    }, (error) => {
-        console.log(error.text);
-    });
-    // reset form upon submit
-    e.target.reset();
+    e.preventDefault()
+    emailjs.sendForm(
+      YOUR_SERVICE_ID,
+      YOUR_TEMPLATE_ID,
+      formRef.current,
+      YOUR_USER_ID
+    )
+      .then((result) => {
+          // console.log(result.text);
+          console.log("Form Submitted! Thank you!");
+      }, (error) => {
+          console.log(error.text);
+      });
+      setFormData({ subject: '', email: '', message: ''})
+      captchaRef.current.reset();
+      formRef.current.reset();
+      iSValidEmail(false);
   }
   let cards = [
     {
@@ -212,35 +204,56 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <form onSubmit={sendEmail} className="footer__form form">
-            <div className="form__group email">
-              <input className='form__input' type="email" name='email' value={email} onChange={e => onChange(e)} placeholder='Your E-mail' required/>
+          <form onSubmit={sendEmail} className="footer__form form" ref={formRef}>
+            <div className="form__group subject">
+              <input
+                className='form__input'
+                type="text"
+                name='subject'
+                onChange={e => onChange(e)}
+                placeholder='Subject'
+                required
+              />
               <span className="underline"></span>
             </div>
-            <div className="form__group subject">
-              <input className='form__input' type="text" name='subject' value={subject} onChange={e => onChange(e)} placeholder='Subject' required/>
+            <div className="form__group email">
+              <input
+                className='form__input'
+                type="email"
+                name='email'
+                onChange={e => onChange(e)}
+                placeholder='Your E-mail'
+                required
+              />
               <span className="underline"></span>
             </div>
             <div className="form__group text">
-              <textarea className='form__textarea' type="text" name='message' value={message} onChange={e => onChange(e)} placeholder='Message' required/>
+              <textarea
+                className='form__textarea'
+                type="text"
+                name='message'
+                onChange={e => onChange(e)}
+                placeholder='Message'
+                required
+              />
             </div>
             <div className="form__ctrl">
+              <label style={{ display: "none" }} htmlFor="g-recaptcha-response">
+                ReCaptcha
+              </label>
               <div className="form__recaptcha">
                 <ReCAPTCHA
                   className="recaptcha"
-                  // sitekey={'6Lctp18gAAAAAPthzNBd3b0tJTg3SoaCERxiIkUg'}
-                  // sitekey={'CAPTCHA_SITE_KEY'}
-                  sitekey={process.env.RECAPTCHA_SITE_KEY}
-                  // sitekey={CAPTCHA_SITE_KEY}
+                  sitekey={`${CAPTCHA_SITE_KEY}`}
+                  ref={captchaRef}
                   // onChange={sendEmail}
-                  // onChange={iSValidEmail(true)}
+                  onChange={() => iSValidEmail(true)}
                 />
               </div>
               <div className="form__form-submit">
-                {/* <input type="submit" className="submit-btn" value="Send" /> */}
-                <p>NEXT_PUBLIC_RECAPTCHA_SITE_KEY</p>
-                <button type="submit" className="submit-btn" disabled={validEmail ? true : false}>Send</button>
+                <button type="submit" className="submit-btn" disabled={!validEmail}>Send</button>
               </div>
+              <p>{`email is valid: ${validEmail}`}</p>
             </div>
           </form>
         </div>
