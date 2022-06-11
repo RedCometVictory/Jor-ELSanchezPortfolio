@@ -44,9 +44,9 @@ const Card = ({card}) => {
               </div>
             ) : (
               <div className="card__tech">
-                <div className="">
+                <div className="card__tech-list">
                   {card.tech.map((item, index) => (
-                    <div key={index}>
+                    <div className="card__tech-item" key={index}>
                       <div className="">{item}</div>
                     </div>
                   ))}

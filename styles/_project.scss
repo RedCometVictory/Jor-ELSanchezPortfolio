@@ -7,6 +7,7 @@
     column-gap: 2.025rem;
     row-gap: 2.025rem;
     margin: 0 0 5.275rem 0;
+    justify-items: center;
   }
   &__list-item {
     height: 100%;
@@ -17,7 +18,8 @@
   height: 100%;
   border-radius: 10px;
   padding: 0 0 1.115rem 0;
-  width: 100%;
+  // width: 100%;
+  width: 280px;
   max-width: 300px;
   z-index: 200;
   background-color: var(--bg-primary);
@@ -29,23 +31,23 @@
     padding: 2px;
     background: linear-gradient(35deg, var(--secondary-color), var(--primary-color));
   }
-  .card__img-container {
+  &__img-container {
     
   }
-  .card__img {
+  &__img {
     border-radius: 10px 10px 0 0 /10px 10px 0 0;
   }
-  .card__info {
+  &__info {
     position: relative;
     height: 100px;
     width: 100%;
     padding: 0.357rem 1.275rem;
     height: fit-content;
   }
-  .card__links {
+  &__links {
     @include flex(row, flex-end, center);
   }
-  .card__link-btn {
+  &__link-btn {
     @include flex(row, center, center);
     cursor: pointer;
     background: linear-gradient(35deg, var(--secondary-color), var(--primary-color));
@@ -70,13 +72,13 @@
       color: white;
     }
   }
-  .card__header {
+  &__header {
     padding: 1rem 0 0.375rem 0;
   }
-  .card__content {
+  &__content {
     padding: 0 1.275rem;
   }
-  .card__view {
+  &__view {
     @include flex(row, center, center);
     width: 100%;
     // border: 1px solid white;
@@ -101,8 +103,8 @@
     }
 
   }
-  .card__desc {
-    max-height: 260px;
+  &__desc {
+    max-height: 140px;
     overflow-y: auto;
     overflow-x: hidden;
     -ms-overflow-style: none;
@@ -126,7 +128,17 @@
       border-radius: 20px;
     }
   }
-  .card__tech {
-    max-height: 260px;
+  &__tech {
+    height: 140px;
+    max-height: 140px;
+  }
+  &__tech-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: flex-start;
+  }
+  &__tech-item {
+    width: fit-content;
+    // width: max-content;
   }
 }

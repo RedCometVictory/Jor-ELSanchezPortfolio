@@ -78,8 +78,10 @@ a {
   border: solid 1px blue;
   height: 80vh;
   &__jumbo-text {
-    font-size: 3.235rem;
+    font-size: 2.435rem;
     line-height: 1.02;
+    width: 34rem;
+    align-self: baseline;
   }
   &__img-container {
     border-radius: 50%;
@@ -94,9 +96,12 @@ a {
       width: 100%;
     }
   }
+  &__img {
+    border-radius: 50%;
+  }
   &__name {
     width: 100%;
-    padding: 0 1.08rem 0 0;
+    // padding: 0 1.08rem 0 0;
     font-size: 4.42rem;
     text-align: end;
   }
@@ -121,7 +126,8 @@ a {
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "subject email"
-    "text text";
+    "text text"
+    "ctrl ctrl";
   &__group {
     margin: 0.525rem;
     position: relative;
@@ -141,13 +147,10 @@ a {
       height: 6px;
       background: linear-gradient(35deg, var(--secondary-color), var(--primary-color));
       border: none;
-      // background-color: #64e4fe;
-      // margin: 0 0.525rem 0.525rem 0;
     }
   }
   &__group > input:focus + .underline {
     left: 0;
-    // margin: 0 0.525rem 0.525rem 0.525rem;
   }
   &__input {
     padding: 1.275rem;
@@ -156,6 +159,7 @@ a {
     border: none;
     box-shadow: none;
     color: var(--color-text);
+    border-radius: 6px;
   }
   &__textarea {
     padding: 1.275rem;
@@ -165,6 +169,8 @@ a {
     border: none;
     resize: none;
     color: var(--color-text);
+    border-radius: 6px;
+    outline: none;
   }
   .name {
     grid-area: name;
@@ -180,6 +186,23 @@ a {
   .text {
     grid-area: text;
     margin-right: 0;
+  }
+  &__ctrl {
+    @include flex(row, space-between, center);
+    margin: 0.525rem;
+    grid-area: ctrl;
+  }
+  &__recaptcha {}
+  &__form-submit {
+    .submit-btn {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--bg-primary);
+      padding: 0.375rem 1.275rem;
+      border-radius: 50px;
+      background: linear-gradient(35deg, var(--secondary-color), var(--primary-color));
+      border: none;
+    }
   }
 }
 .footer {

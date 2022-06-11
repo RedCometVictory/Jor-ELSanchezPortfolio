@@ -1,5 +1,8 @@
+import { useState } from "react";
 import Head from 'next/head';
 import Image from 'next/image';
+import emailjs from "emailjs-com";
+import ReCAPTCHA from 'react-google-recaptcha';
 import NavBar from "../components/NavBar";
 import Card from '../components/UI/Card';
 // import DevIcon from "devicon-react-svg";
@@ -24,6 +27,7 @@ import SASS from '../components/svgs/icons/SASS';
 import TypeScript from '../components/svgs/icons/TypeScript';
 import Webpack from '../components/svgs/icons/Webpack';
 
+import avatar from "../public/images/avatars/24633082.jpg";
 import screenshot_01 from "../public/images/BlaZr-Gear-01.png";
 import screenshot_02 from "../public/images/job-board-newt-01.png";
 import screenshot_03 from "../public/images/zuitblog-01.png";
@@ -33,10 +37,31 @@ import screenshot_06 from "../public/images/SquadUp-Social-03.png";
 import screenshot_07 from "../public/images/SquadUp-Social-04.png";
 import screenshot_08 from "../public/images/SquadUp-Social-05.png";
 
+const YOUR_SERVICE_ID = process.env.NEXT_APP_SERVICE_ID;
+const YOUR_TEMPLATE_ID = process.env.NEXT_APP_TEMPLATE_ID;
+const YOUR_USER_ID = process.env.NEXT_APP_USER_ID;
+const CAPTCHA_SITE_KEY = process.env.NEXT_APP_RECAPTCHA_SITE_KEY;
+
 const Home = () => {
+  // const [dropDown, setDropDown] = useState(false);
+  // const [menu, setMenu] = useState(true);
+  // const [buttonText, setButtonText] = useState("Sides");
+  const [validEmail, iSValidEmail] = useState(false);
   const handleContactForm = () => {
-    console.log("Form submitted!Z")
+    console.log("Form submitted!")
   };
+  function sendEmail(e) {
+  e.preventDefault();
+  // email service udes, id of template, formdata, 
+  emailjs.sendForm(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, e.target, YOUR_USER_ID)
+    .then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
+    // reset form upon submit
+    e.target.reset();
+  }
   let cards = [
     {
       title: "Blazr Gear",
@@ -88,7 +113,15 @@ const Home = () => {
             <h2 className='hero__jumbo-text'>A Front End developer with Back End experience</h2>
 {/* image goes here */}
             <div className="hero__img-container">
-              <span>JS</span>
+              <Image
+                src={avatar}
+                className="hero__img"
+                alt="project screen"
+                layout="responsive"
+                height={180}
+                width={180}
+              />
+              {/* <span>JS</span> */}
             </div>
             <h1 className="hero__name">
               Jor-EL Sanchez
@@ -165,7 +198,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <form onSubmit={handleContactForm} className="footer__form form">
+          <form onSubmit={sendEmail} className="footer__form form">
             <div className="form__group email">
               <input className='form__input' type="email" name='email' placeholder='Your E-mail' required/>
               <span className="underline"></span>
@@ -177,7 +210,21 @@ const Home = () => {
             <div className="form__group text">
               <textarea className='form__textarea' type="text" name='message' placeholder='Message' required/>
             </div>
-            <div className="footer__form-submit"></div>
+            <div className="form__ctrl">
+              <div className="form__recaptcha">
+                <ReCAPTCHA
+                  className="recaptcha"
+                  sitekey={`${CAPTCHA_SITE_KEY}`}
+                  // sitekey={CAPTCHA_SITE_KEY}
+                  // onChange={sendEmail}
+                  // onChange={iSValidEmail(true)}
+                />
+              </div>
+              <div className="form__form-submit">
+                {/* <input type="submit" className="submit-btn" value="Send" /> */}
+                <button type="submit" className="submit-btn" disabled={validEmail ? true : false}>Send</button>
+              </div>
+            </div>
           </form>
         </div>
         <div className="footer__copyright">
@@ -188,49 +235,4 @@ const Home = () => {
   )
 }
 export default Home;
-
-/*
-<div className="contact__section">
-          <form className="form" onSubmit={sendEmail} data-netlify-recaptcha="true" data-netlify="true">
-            <div className="form__item hidden">
-              <input type="hidden" name="subject" className="form__input" value="Catering Quote" required/>
-            </div>
-            <div className="form__item">
-              <label htmlFor="name" className="form__label">
-                Your Name<span className="req">*</span>
-              </label>
-              <input type="text" name="name" className="form__input" placeholder="First Name (Last Name optional)" required/>
-            </div>
-            <div className="form__item">
-              <label htmlFor="phone" className="form__label">
-                Phone Number
-              </label>
-              <input type="tel" name="phone" className="form__input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890"/>
-            </div>
-            <div className="form__item">
-              <label htmlFor="email" className="form__label">
-                Your Email Address<span className="req">*</span>
-              </label>
-              <input type="email" name="email" className="form__input" placeholder="email@mail.com" required/>
-            </div>
-            <div className="form__item">
-              <label htmlFor="numpeople" className="form__label">
-                How Many People?
-              </label>
-              <input type="number" name="numpeople" className="form__input" />
-            </div>
-            <div className="form__item">
-              <label htmlFor="message" className="form__label">
-                Message<span className="req">*</span>
-              </label>
-              <textarea name="message" className="form__textarea" id="" cols="30" rows="10" placeholder="Write your message." required></textarea>
-            </div>
-            <div className="form__item">
-              <div data-netlify-recaptcha="true" className="contact__captcha"></div>
-            </div>
-            <div className="form__footer">
-              <input type="submit" className="btn btn-primary ms-mr ms-mt" value="Send Message" />
-            </div>
-          </form>
-        </div>
-*/
+// TODO create a character limit of 400 or 300 characters.
