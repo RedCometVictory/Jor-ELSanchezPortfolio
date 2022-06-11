@@ -189,7 +189,7 @@ a {
   }
   &__ctrl {
     @include flex(row, space-between, center);
-    margin: 0.525rem;
+    margin: 0.525rem 0 0.525rem 0.525rem;
     grid-area: ctrl;
   }
   &__recaptcha {}
