@@ -229,7 +229,8 @@ const Home = () => {
                 <ReCAPTCHA
                   className="recaptcha"
                   // sitekey={'6Lctp18gAAAAAPthzNBd3b0tJTg3SoaCERxiIkUg'}
-                  sitekey={'CAPTCHA_SITE_KEY'}
+                  // sitekey={'CAPTCHA_SITE_KEY'}
+                  sitekey={process.env.RECAPTCHA_SITE_KEY}
                   // sitekey={CAPTCHA_SITE_KEY}
                   // onChange={sendEmail}
                   // onChange={iSValidEmail(true)}
