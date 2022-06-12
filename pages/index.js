@@ -47,8 +47,13 @@ const Home = () => {
   const formRef = useRef();
   const captchaRef = useRef();
 
-  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+  // const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
   
+  const captchaReset = () => {
+    captchaRef.current.reset();
+    iSValidEmail(false);
+  };
+
   function sendEmail(e) {
     e.preventDefault()
     emailjs.sendForm(
@@ -63,7 +68,8 @@ const Home = () => {
       }, (error) => {
           console.log(error.text);
       });
-      setFormData({ subject: '', email: '', message: ''})
+      // setFormData({ subject: '', email: '', message: ''})
+      formRef.current.reset()
       captchaRef.current.reset();
       formRef.current.reset();
       iSValidEmail(false);
@@ -210,7 +216,7 @@ const Home = () => {
                 className='form__input'
                 type="text"
                 name='subject'
-                onChange={e => onChange(e)}
+                // onChange={e => onChange(e)}
                 placeholder='Subject'
                 required
               />
@@ -221,7 +227,7 @@ const Home = () => {
                 className='form__input'
                 type="email"
                 name='email'
-                onChange={e => onChange(e)}
+                // onChange={e => onChange(e)}
                 placeholder='Your E-mail'
                 required
               />
@@ -232,7 +238,7 @@ const Home = () => {
                 className='form__textarea'
                 type="text"
                 name='message'
-                onChange={e => onChange(e)}
+                // onChange={e => onChancge(e)}
                 placeholder='Message'
                 required
               />
@@ -244,19 +250,21 @@ const Home = () => {
               <div className="form__recaptcha">
                 <ReCAPTCHA
                   className="recaptcha"
-                  sitekey={`${CAPTCHA_SITE_KEY}`}
+                  sitekey={CAPTCHA_SITE_KEY}
                   ref={captchaRef}
+                  onErrored={() => captchaReset}
+                  onExpired={() => iSValidEmail(false)}
                   // onChange={sendEmail}
                   onChange={() => iSValidEmail(true)}
                 />
               </div>
               <div className="form__form-submit">
-                <button type="submit" className="submit-btn" disabled={!validEmail}>Send</button>
+                <button type="submit" className="submit-btn" disabled={!validEmail}>{validEmail ? `Send` : `Checkbox`}</button>
               </div>
-              <p>{`email is valid: ${validEmail}`}</p>
             </div>
           </form>
         </div>
+        {/* <p>{`${CAPTCHA_SITE_KEY}`}</p> */}
         <div className="footer__copyright">
           <h6>Jor-EL Sanchez &copy; 2022</h6>
         </div>
