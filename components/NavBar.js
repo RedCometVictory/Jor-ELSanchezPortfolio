@@ -39,7 +39,7 @@ const NavBar = () => {
             <button>Resume</button>
           </li>
           <li className="nav__link-item">
-            <div className={`palette ${showThemes ? 'active' : ''}`} onClick={() => isShowThemes(!showThemes)}>
+            <div className={`palette__theme-select ${showThemes ? 'active' : ''}`} onClick={() => isShowThemes(!showThemes)}>
               <FaPalette />
             </div>
           </li>

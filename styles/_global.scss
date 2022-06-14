@@ -6,6 +6,7 @@
 
 html,
 body {
+  transition: 500ms ease;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: var(--bg-primary);
@@ -18,21 +19,27 @@ a {
 }
 
 .container {
-  color: var(--color-color);
+  // color: var(--color-color);
   height: 100%;
 }
 
 .main {
-  width: 80%;
-  margin: 0 auto;
+  // width: 90rem; // 1440px
+  width: 100%;
+  max-width: 75rem; // 1200px
 }
-
+  
 .nav {
+  // max-width: 90rem; // 1440px
+  max-width: 75rem; // 1440px
+  width: 100%;
   color: var(--primary-color);
+  // position: relative;
   &__container {
     position: relative;
+    margin: 0 auto;
     // height: 3rem;
-    padding: 0 2rem 0 0;
+    // padding: 0 2rem 0 0;
   }
   &__menu {
     padding: 2rem 0;
@@ -51,6 +58,7 @@ a {
     .palette {
       color: var(--primary-color);
       // width: 2rem;
+
       svg {
         padding: 3px 0 0 0;
         font-size: 22px;
@@ -64,6 +72,7 @@ a {
       color: var(--bg-primary);
       background: linear-gradient(35deg, var(--secondary-color), var(--primary-color));
       border: none;
+      // transition: 500ms ease;
     }
     &:hover {
       color: var(--color-text-hover);
@@ -72,24 +81,131 @@ a {
   }
 }
 
+.palette {
+  // display: none;
+  z-index: 600;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  transition: all 700ms ease;
+  &.active {
+    // display: contents;
+    right: 5.26rem;
+  }
+  &__item {
+    padding: 6px 4px;
+  }
+
+  &__theme-select {
+    margin: 4px 0 0 0;
+    &.active {
+      color: var(--color-navbar-active);
+    }
+  }
+
+  &__theme-container {
+    @include flex(column, center, center);
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 4px;
+    background-color: var(--color-navbar-a);
+    max-width: 300px;
+    width: max-content;
+    padding: 10px;
+  }
+
+  &__circle {
+    border: 1px solid var(--bg-primary);
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    background-color: aqua;
+    cursor: pointer;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor */
+    &.light {
+      background: linear-gradient(35deg, var(--secondary-color), var(--primary-color));
+      background-size: auto;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+      background-color: rgba(0, 0, 0, 0);
+    }
+    &.sky {
+      background: linear-gradient(35deg, var(--secondary-color), var(--primary-color));
+      background-size: auto;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+      background-color: rgba(0, 0, 0, 0);
+    }
+    &.dark {
+      background: linear-gradient(35deg, var(--secondary-color), var(--primary-color));
+      background-size: auto;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+      background-color: rgba(0, 0, 0, 0);
+    }
+    &.midnight {
+      background: linear-gradient(35deg, var(--secondary-color), var(--primary-color));
+      // background-image: linear-gradient(to right bottom, rgba(9, 100, 14, 1) 50%, rgba(2, 63, 5, 1) 51%);
+      background-size: auto;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+}
+
+.decor {
+  &__item--01 {
+    background: none;
+    height: fit-content;
+    width: 15rem;
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 38%;
+    right: -30%;
+    transition: 700ms ease;
+  }
+  &__item--02 {
+    border-radius: 50%;
+    background: none;
+    height: fit-content;
+    width: 15rem;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: 26%;
+  }
+}
+
 .hero {
   @include flex(column, space-between, center);
+  position: relative;
   width: 100%;
-  border: solid 1px blue;
   height: 80vh;
+  padding: 0 1rem 0;
   &__jumbo-text {
     font-size: 2.435rem;
     line-height: 1.02;
-    width: 34rem;
     align-self: baseline;
+    max-width: 31rem;
+  }
+  &__decor {
+    width: 100%;
+    @include flex(row, space-between, center);
+    position: relative;
+    height: inherit;
   }
   &__img-container {
     border-radius: 50%;
     height: 180px;
     width: 180px;
-    border: 1px solid white;
     align-self: flex-end;
-    margin: 0 10.275rem 2.875rem 0;
+    position: absolute;
+    top: 27%;
+    right: 1%;
+    transition: 700ms ease;
     span {
       @include flex(row, center, center);
       height: 100%;
@@ -101,21 +217,20 @@ a {
   }
   &__name {
     width: 100%;
-    // padding: 0 1.08rem 0 0;
     font-size: 4.42rem;
+    font-size: 2.42rem;
     text-align: end;
+    z-index: 100;
   }
 }
 
 .theme {
   &__primary-color {
-    // color: var(--primary-color);
     stop-color: var(--primary-color);
     stop-opacity: 1;
   }
   
   &__secondary-color {
-    // color: var(--secondary-color);
     stop-color: var(--secondary-color);
     stop-opacity: 1;
   }
@@ -129,7 +244,7 @@ a {
     "text text"
     "ctrl ctrl";
   &__group {
-    margin: 0.525rem;
+    margin: 0rem 0 0.525rem 0;
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -154,7 +269,7 @@ a {
   }
   &__input {
     padding: 1.275rem;
-    background-color: rgba(0, 0, 0, 0.35); //TODO set var()
+    background-color: rgba(0, 0, 0, 0.3); //TODO set var()
     width: 100%;
     border: none;
     box-shadow: none;
@@ -163,7 +278,7 @@ a {
   }
   &__textarea {
     padding: 1.275rem;
-    background-color: rgba(0, 0, 0, 0.35); //TODO set var()
+    background-color: rgba(0, 0, 0, 0.3); //TODO set var()
     height: 7.775rem;
     width: 100%;
     border: none;
@@ -171,28 +286,35 @@ a {
     color: var(--color-text);
     border-radius: 6px;
     outline: none;
+    font: inherit;
   }
   .name {
     grid-area: name;
   }
   .email {
+    margin-left: 0.2625rem;
     grid-area: email;
     margin-right: 0;
   }
   .subject {
+    margin-right: 0.2625rem;
     grid-area: subject;
-    margin-right: 0;
   }
   .text {
     grid-area: text;
     margin-right: 0;
   }
   &__ctrl {
-    @include flex(row, space-between, center);
-    margin: 0.525rem 0 0.525rem 0.525rem;
+    @include flex(column, space-between, center);
+    margin: 0.525rem 0 0.525rem 0;
     grid-area: ctrl;
   }
-  &__recaptcha {}
+  &__recaptcha {
+    height: 6.725rem;
+    .recaptcha {
+      width: 100%;
+    }
+  }
   &__form-submit {
     .submit-btn {
       cursor: pointer;
@@ -205,11 +327,12 @@ a {
     }
   }
 }
+
 .footer {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   &__container {
-    @include flex(row, space-between, center);
+    @include flex(column, space-between, center);
     padding: 0 0 4.475rem 0;
   }
   &__contact {
@@ -220,10 +343,252 @@ a {
     }
   }
   &__form {
+    padding: 1.115rem 0 0 0;
     flex-grow: 2;
   }
   &__copyright {
     text-align: center;
     padding: 0 0 2.125rem 0;
+  }
+}
+
+@media (min-width: 234px) {
+  .decor {
+    &__item--01 {
+      right: -28%;
+    }
+  }
+}
+
+@media (min-width: 250px) {
+  .decor {
+    &__item--01 {
+      right: -26%;
+    }
+  }
+  .hero {
+    &__img-container {
+      top: 29%;
+      right: 13%;
+    }
+  }
+}
+
+@media (min-width: 286px) {
+  .decor {
+    &__item--01 {
+      right: -24%;
+    }
+  }
+  .hero {
+    &__img-container {
+      top: 30%;
+      right: 11%;
+    }
+  }
+}
+
+@media (min-width: 300px) {
+  .main {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .decor {
+    &__item--01 {
+      right: -21%;
+    }
+  }
+  .hero {
+    padding: 0;
+  }
+}
+
+@media (min-width: 320px) {
+  .decor {
+    &__item--01 {
+      top: 36%;
+      right: -23%;
+    }
+  }
+  .hero {
+    &__img-container {
+      right: 6%;
+    }
+  }
+}
+
+@media (min-width: 340px) {
+  .decor {
+    &__item--01 {
+      right: -21%;
+    }
+  }
+}
+
+@media (min-width: 374px) {
+  .decor {
+    &__item--01 {
+      right: -19%;
+    }
+  }
+}
+
+@media (min-width: 400px) {
+  .decor {
+    &__item--01 {
+      right: -15%;
+    }
+  }
+  .hero {
+    &__img-container {
+      right: 10%;
+    }
+  }
+}
+
+@media (min-width: 420px) {
+  .decor {
+    &__item--01 {
+      right: -13%;
+    }
+  }
+  .form {
+    &__ctrl {
+      @include flex(row, space-between, flex-start);
+    }
+  }
+}
+
+@media (min-width: 442px) {
+  .decor {
+    &__item--01 {
+      right: -11%;
+    }
+  }
+}
+
+@media (min-width: 454px) {
+  .decor {
+    &__item--01 {
+      right: -11%;
+    }
+  }
+  .hero {
+    &__img-container {
+      top: 29%;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .decor {
+    &__item--01 {
+      right: -10%;
+    }
+  }
+}
+
+@media (min-width: 542px) {
+  .decor {
+    &__item--01 {
+      right: -08%;
+    }
+  }
+}
+
+@media (min-width: 584px) {
+  .decor {
+    &__item--01 {
+      right: -07%;
+    }
+  }
+}
+
+@media (min-width: 604px) {
+  .decor {
+    &__item--01 {
+      right: -06%;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .decor {
+    &__item--01 {
+      right: -03%;
+    }
+  }
+}
+
+@media (min-width: 740px) {
+  .footer {
+    &__container {
+      @include flex(row, space-between, center);
+    }
+    &__form {
+      max-width: 440px;
+      padding: 0;
+    }
+  }
+};
+
+@media (min-width: 800px) {
+  .decor {
+    &__item--01 {
+      right: -02%;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .decor {
+    &__item--01 {
+      right: -01%;
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .decor {
+    &__item--01 {
+      right: 0.6%;
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  .decor {
+    &__item--01 {
+      right: 1%;
+    }
+  }
+  .hero {
+    &__img-container {
+      right: 10%;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .decor {
+    &__item--01 {
+      right: 2%;
+    }
+  }
+}
+
+@media (min-width: 1300px) {
+  .decor {
+    &__item--01 {
+      right: 3%;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .decor {
+    &__item--01 {
+      right: 3%;
+    }
   }
 }

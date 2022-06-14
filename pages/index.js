@@ -27,6 +27,8 @@ import SASS from '../components/svgs/icons/SASS';
 import TypeScript from '../components/svgs/icons/TypeScript';
 import Webpack from '../components/svgs/icons/Webpack';
 
+import Dots from "../components/svgs/shapes/Dots";
+
 import avatar from "../public/images/avatars/24633082.jpg";
 import screenshot_01 from "../public/images/BlaZr-Gear-01.png";
 import screenshot_02 from "../public/images/job-board-newt-01.png";
@@ -36,6 +38,7 @@ import screenshot_05 from "../public/images/SquadUp-Social-02.png";
 import screenshot_06 from "../public/images/SquadUp-Social-03.png";
 import screenshot_07 from "../public/images/SquadUp-Social-04.png";
 import screenshot_08 from "../public/images/SquadUp-Social-05.png";
+import DotsCircle01 from "../components/svgs/shapes/DotsCircle01";
 
 const YOUR_SERVICE_ID = process.env.NEXT_PUBLIC_SERVICE_ID;
 const YOUR_TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
@@ -43,11 +46,10 @@ const YOUR_USER_ID = process.env.NEXT_PUBLIC_USER_ID;
 const CAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const Home = () => {
+  // const [] = useState();
   const [validEmail, iSValidEmail] = useState(false);
   const formRef = useRef();
   const captchaRef = useRef();
-
-  // const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
   
   const captchaReset = () => {
     captchaRef.current.reset();
@@ -67,8 +69,7 @@ const Home = () => {
           console.log("Form Submitted! Thank you!");
       }, (error) => {
           console.log(error.text);
-      });
-      // setFormData({ subject: '', email: '', message: ''})
+      })
       formRef.current.reset()
       captchaRef.current.reset();
       formRef.current.reset();
@@ -80,7 +81,7 @@ const Home = () => {
       type: "E-Commerce",
       image: screenshot_01,
       tech: ["React", "Redux-Toolkit", "PostgreSQL", "ExpressJS", "JWT", "StripeAPI", "CloudinaryAPI", "MapboxAPI", "SendGrid", "NodeMailer"],
-      description: "Blazr Gear allows users to pay with Stripe. JWTs are used for authenticating and setting authorization guards for admin access. Nodemailer and SendGrid is used to email a user of a successful purchase or when an order has been refunded. Additionally, this email service is used to reset a user's password. Users have the option to save cards they used in their purchases via the StripeAPI. Admins can review orders, create and update products, and edit admin permissions for other users."
+      description: "Blazr Gear allows users to pay with Stripe. Nodemailer and SendGrid is used to email a user of a successful purchase or when an order has been refunded. Additionally, this email service is used to reset a user's password. Users have the option to save cards they used in their purchases via the StripeAPI. Admins can review orders, create and update products, and edit admin permissions for other users."
     },
     {
       title: "Newt - Simple Job Search",
@@ -94,14 +95,14 @@ const Home = () => {
       type: "Blog",
       image: screenshot_03,
       tech: ["NextJS" , "React Hooks", "EditorJS", "MongoDB", "Mongoose"],
-      description: "Zuit - a blog where users can share general thoughts, ideas and more importantly - code snippets with one another. React useReducer and useContext is used to keep track of state across all components in the app. Users can change the color of the blog from an assortment of themes. Authorization and authentication is kept inside of a cookie.",
+      description: "Zuit - a blog where users can share general thoughts, ideas and more importantly - code snippets with one another. React useReducer and useContext is used to keep track of state in the app. Users can change the color of the blog from an assortment of themes. Authentication is kept inside of a cookie.",
     },
     {
       title: "SquadUp Social",
       type: "Social Media",
       image: screenshot_04,
       tech: ["React", "Redux", "PostgreSQL", "ExpressJS", "JWT", "CloudinaryAPI"],
-      description: "First 'large' fullstack project I ever worked on without the aid of a video tutorial. This project allowed me to break out of the dreaded 'Tutorial Hell' once and for all. SquadUp is a social media site that allows users to share images and to send simple communications.",
+      description: "My first attempt at breaking out of the dreaded 'Tutorial Hell'. For this full-stack project I limited my relience on tutorials and relied more on documentation. SquadUp is a small social media site that allows users to share images and send simple communications.",
     },
     {
       title: "The Den",
@@ -123,17 +124,18 @@ const Home = () => {
         <div className="">
           <section className="hero">
             <h2 className='hero__jumbo-text'>A Front End developer with Back End experience</h2>
-{/* image goes here */}
-            <div className="hero__img-container">
-              <Image
-                src={avatar}
-                className="hero__img"
-                alt="project screen"
-                layout="responsive"
-                height={180}
-                width={180}
-              />
-              {/* <span>JS</span> */}
+            <div className="hero__decor">
+              <Dots/>
+              <div className="hero__img-container">
+                <Image
+                  src={avatar}
+                  className="hero__img"
+                  alt="project screen"
+                  layout="responsive"
+                  height={180}
+                  width={180}
+                />
+              </div>
             </div>
             <h1 className="hero__name">
               Jor-EL Sanchez
@@ -146,16 +148,12 @@ const Home = () => {
                 <p>Skilled in the following tech, as well as - JSON, Cloudinary, public APIs, Stripe, Fetch, and Axios.</p>
               </div>
               <div className="skills__icon-container">
-                {/* <CSS/> */}
                 <Express/>
-                {/* <Git/> */}
-                {/* <Html/> */}
                 <MongoDB/>
                 <JavaScript/>
                 <Markdown/>
                 <MySQL/>
                 <NextJS/>
-                {/* <NodeJS/> */}
                 <PostgreSQL/>
                 <ReactJS/>
                 <Redux/>
@@ -165,7 +163,7 @@ const Home = () => {
             <div className="skills__content">
               <h2 className="skills__header">Familiar / Diving Into</h2>
               <div className="skills__desc">
-                <p>Currently learning or somewhat familiar with the following tech (such as Photoshop).</p>
+                <p>Currently learning or somewhat familiar with the following tech (including Photoshop):</p>
               </div>
               <div className="skills__icon-container">
                 <Laravel/>
@@ -185,7 +183,7 @@ const Home = () => {
             </div>
           </section>
           <section className="projects">
-            <h2 className="projects__header">
+            <h2 className="projects__header section-header">
               Portfolio Projects
             </h2>
             <div className="projects__list">
@@ -206,7 +204,7 @@ const Home = () => {
             <div className="">
               <h2>E-Mail:</h2>
               <div className="email-address">
-                <p>acemiranda13@att.net</p>
+                <p>acemiranda0093@att.net</p>
               </div>
             </div>
           </div>
@@ -216,7 +214,6 @@ const Home = () => {
                 className='form__input'
                 type="text"
                 name='subject'
-                // onChange={e => onChange(e)}
                 placeholder='Subject'
                 required
               />
@@ -227,7 +224,6 @@ const Home = () => {
                 className='form__input'
                 type="email"
                 name='email'
-                // onChange={e => onChange(e)}
                 placeholder='Your E-mail'
                 required
               />
@@ -238,7 +234,6 @@ const Home = () => {
                 className='form__textarea'
                 type="text"
                 name='message'
-                // onChange={e => onChancge(e)}
                 placeholder='Message'
                 required
               />
@@ -254,17 +249,16 @@ const Home = () => {
                   ref={captchaRef}
                   onErrored={() => captchaReset}
                   onExpired={() => iSValidEmail(false)}
-                  // onChange={sendEmail}
                   onChange={() => iSValidEmail(true)}
+                  size={"compact"}
                 />
               </div>
               <div className="form__form-submit">
-                <button type="submit" className="submit-btn" disabled={!validEmail}>{validEmail ? `Send` : `Checkbox`}</button>
+                <button type="submit" className="submit-btn" disabled={!validEmail}>{validEmail ? `Send` : `reCaptcha`}</button>
               </div>
             </div>
           </form>
         </div>
-        {/* <p>{`${CAPTCHA_SITE_KEY}`}</p> */}
         <div className="footer__copyright">
           <h6>Jor-EL Sanchez &copy; 2022</h6>
         </div>

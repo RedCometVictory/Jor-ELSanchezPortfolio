@@ -11,13 +11,15 @@
   --color-navbar-a: rgba(211, 214, 222, 1);
 
   // Buttons
+  --proj-svg-link: rgb(63, 56, 56);
+  --proj-svg-link-hover: rgb(238, 226, 226);
   --primary-btn-bg: rgb(22, 28, 45);
   --secondary-btn-bg: #c56a2d;
   --tetiary-btn-bg: #2b50c7;
   --color-btn-text: rgb(245, 238, 238);
   --color-btn-text-hover: rgb(175, 150, 250);
   --color-btn-hover: rgb(255, 249, 249);
-
+  
   // Primary Backgrounds
   --primary-color: rgb(234, 51, 51);
   --secondary-color: rgb(234, 176, 51);
@@ -32,6 +34,49 @@
   // --bg-linear-gradient: linear-gradient(--secondary-color, --primary-color);
 }
 
+.theme-sky {
+  // navbar, links
+  --color-logo: rgb(245, 238, 238);
+  --color-icon: rgb(67, 67, 67);
+  --color-text: rgb(67, 67, 67);
+  --color-text-hover: rgb(67, 67, 67);
+  --color-link: rgb(80, 102, 144);
+  --color-navbar-text: rgb(67, 67, 67);
+  --color-navbar: rgb(197, 197, 214);
+  --color-navbar-a: rgb(176, 230, 225);
+
+  // Buttons
+  --proj-svg-link: rgb(63, 56, 56);
+  --proj-svg-link-hover: rgb(238, 226, 226);
+  --primary-btn-bg: rgb(22, 28, 45);
+  --secondary-btn-bg: #c56a2d;
+  --tetiary-btn-bg: #2b50c7;
+  --color-btn-text: rgb(245, 238, 238);
+  --color-btn-text-hover: rgb(175, 150, 250);
+  --color-btn-hover: rgb(255, 249, 249);
+  
+  // Primary Backgrounds
+  --primary-color: rgb(53, 224, 181);
+  --secondary-color: rgb(51, 94, 234);
+  --primary-color-a: rgba(53, 224, 124, 0.8);
+  --primary-color-a-6: rgba(53, 224, 124, 0.6);
+  --primary-color-a-4: rgba(53, 224, 124, 0.4);
+  --primary-color-a-2: rgba(53, 224, 124, 0.2);
+  --secondary-color-a: rgba(51, 94, 234, 0.8);
+  --secondary-color-a-6: rgba(51, 94, 234, 0.6);
+  --secondary-color-a-4: rgba(51, 94, 234, 0.4);
+  --sedcondary-color-a-2: rgba(51, 94, 234, 0.2);
+
+
+  // --bg-primary: rgb(222, 225, 238);
+  // --bg-primary: rgb(208, 238, 236);
+  --bg-primary: rgb(204, 243, 240);
+  --bg-secondary: rgba(231, 231, 231, 0.259);
+  --bg-quatenary: rgb(255, 255, 255);
+  --bg-panel: rgb(204, 197, 214);
+  // --bg-linear-gradient: linear-gradient(--secondary-color, --primary-color);
+}
+
 .theme-dark {
   // navbar, links
   --color-logo: rgb(245, 238, 238);
@@ -41,16 +86,20 @@
   --color-link: rgb(80, 102, 144);
   --color-navbar-text: rgb(181, 181, 181);
   --color-navbar: rgb(67, 67, 67);
-  --color-navbar-a: rgba(51, 51, 51, 1);
-
+  --color-navbar-a: rgba(2, 29, 53, 1);
+  // --color-navbar-a: rgba(51, 51, 51, 1);
+  
   // Buttons
+  // --proj-svg-link: rgb(181, 181, 181);
+  --proj-svg-link: rgb(3, 39, 70);
+  --proj-svg-link-hover: rgb(238, 226, 226);
   --primary-btn-bg: rgb(22, 28, 45);
   --secondary-btn-bg: #c56a2d;
   --tetiary-btn-bg: #2b50c7;
   --color-btn-text: rgb(245, 238, 238);
   --color-btn-text-hover: rgb(175, 150, 250);
   --color-btn-hover: rgb(255, 249, 249);
-
+  
   // Primary Backgrounds
   --primary-color: rgb(161, 51, 234);
   --secondary-color: rgb(51, 94, 234);
@@ -58,6 +107,51 @@
   --primary-color-a-6: rgba(161, 51, 234, 0.6);
   --primary-color-a-4: rgba(161, 51, 234, 0.4);
   --primary-color-a-2: rgba(161, 51, 234, 0.2);
+  --secondary-color-a: rgba(51, 94, 234, 0.8);
+  --secondary-color-a-6: rgba(51, 94, 234, 0.6);
+  --secondary-color-a-4: rgba(51, 94, 234, 0.4);
+  --sedcondary-color-a-2: rgba(51, 94, 234, 0.2);
+  // --bg-primary: rgb(51, 51, 51);
+  --bg-primary: rgb(3, 39, 70);
+  --bg-secondary: rgba(231, 231, 231, 0.259);
+  --bg-quatenary: rgb(255, 255, 255);
+  --bg-panel: rgb(67, 67, 67);
+  // --bg-linear-gradient: linear-gradient(--secondary-color, --primary-color);
+}
+
+.theme-midnight {
+  // navbar, links
+  --color-logo: rgb(245, 238, 238);
+  --color-icon: rgb(181, 181, 181);
+  --color-text: rgb(181, 181, 181);
+  --color-text-hover: rgb(181, 181, 181);
+  --color-link: rgb(80, 102, 144);
+  --color-navbar-text: rgb(181, 181, 181);
+  --color-navbar: rgb(67, 67, 67);
+  --color-navbar-a: rgba(2, 29, 53, 1);
+  // --color-navbar-a: rgba(51, 51, 51, 1);
+  
+  // Buttons
+  // --proj-svg-link: rgb(181, 181, 181);
+  --proj-svg-link: rgb(3, 39, 70);
+  --proj-svg-link-hover: rgb(238, 226, 226);
+  --primary-btn-bg: rgb(22, 28, 45);
+  --secondary-btn-bg: #c56a2d;
+  --tetiary-btn-bg: #2b50c7;
+  --color-btn-text: rgb(245, 238, 238);
+  --color-btn-text-hover: rgb(175, 150, 250);
+  --color-btn-hover: rgb(255, 249, 249);
+  
+  // Primary Backgrounds
+  // --primary-color: rgb(51, 234, 164);
+  // --primary-color: rgb(68, 231, 169);
+  // --primary-color: rgb(53, 224, 124);
+  --primary-color: rgb(53, 224, 181);
+  --secondary-color: rgb(51, 94, 234);
+  --primary-color-a: rgba(53, 224, 124, 0.8);
+  --primary-color-a-6: rgba(53, 224, 124, 0.6);
+  --primary-color-a-4: rgba(53, 224, 124, 0.4);
+  --primary-color-a-2: rgba(53, 224, 124, 0.2);
   --secondary-color-a: rgba(51, 94, 234, 0.8);
   --secondary-color-a-6: rgba(51, 94, 234, 0.6);
   --secondary-color-a-4: rgba(51, 94, 234, 0.4);

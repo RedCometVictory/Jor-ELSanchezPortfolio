@@ -6,20 +6,26 @@ const myThemes = [
     unlocked: true,
   },
   {
+    id: "sky",
+    name: "Sky",
+    type: "light",
+    unlocked: true,
+  },
+  {
     id: "dark",
     name: "Dark",
+    type: "dark",
+    unlocked: true
+  },
+  {
+    id: "midnight",
+    name: "Midnight",
     type: "dark",
     unlocked: true
   },
   // {
   //   id: "leaf",
   //   name: "Leaf",
-  //   type: "dark",
-  //   unlocked: true
-  // },
-  // {
-  //   id: "bee",
-  //   name: "Bee",
   //   type: "dark",
   //   unlocked: true
   // },

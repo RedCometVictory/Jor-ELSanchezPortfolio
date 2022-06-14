@@ -1,27 +1,26 @@
 .skills {
   padding: 4.2rem 0 3.6rem 0;
   &__content {
-    // @include flex(row, center, center);
-    // border: solid 1px blueviolet;
     padding: 2.375rem 0 0 0;
   }
   &__content:first-child {
     padding: 0;
   }
   &__header:first-child {
-    padding: 0 0 0.05rem 0;
+    padding: 2rem 1rem 0;
   }
   &__header {
-    padding: 2.375rem 0 1.125rem 0;
+    padding: 0 1rem 0;
   }
   &__desc {
-    padding: 0 0 2.375rem 0;
+    text-align: start;
+    padding: 1rem 1rem 1.115rem;
   }
   &__desc:first-child {
     margin: 0;
   }
   &__icon-container {
-    @include grid(repeat(5, 100px), 2, center, center);
+    @include grid(repeat(2, 100px), 2, center, center);
     row-gap: 2.75rem;
   }
   &__icon-box {
@@ -37,5 +36,45 @@
     border-radius: 10px;
     margin: 0.75rem 0 0 0;
   }
-  &__icon-name {}
 }
+
+@media (min-width: 300px) {
+  .skills {
+    &__header:first-child {
+      padding: initial;
+    }
+    &__header {
+      padding: initial;
+    }
+    &__desc {
+      padding: 1rem 0 2.115rem;
+    }
+  }
+}
+
+@media (min-width: 334px) {
+  .skills {
+    &__icon-container {
+      @include grid(repeat(3, 100px), 2, center, center);
+      row-gap: 2.75rem;
+    }
+  }
+};
+
+@media (min-width: 536px) {
+  .skills {
+    &__icon-container {
+      @include grid(repeat(4, 100px), 2, center, center);
+      row-gap: 2.75rem;
+    }
+  }
+};
+
+@media (min-width: 656px) {
+  .skills {
+    &__icon-container {
+      @include grid(repeat(5, 100px), 2, center, center);
+      row-gap: 2.75rem;
+    }
+  }
+};
