@@ -16,7 +16,6 @@ const Dots = () => {
             // gradientTransform="rotate(115)"
           >
             <svg width="25" height="25" viewBox="0 0 100 100">
-            {/* <svg width="12" height="12" viewBox="0 0 100 100"> */}
               <g fill="url(#header-shape-gradient)" opacity="0.7">
                 <circle cx="50" cy="50" r="50" gra></circle>
               </g>

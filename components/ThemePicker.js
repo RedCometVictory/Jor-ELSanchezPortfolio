@@ -23,45 +23,9 @@ const myThemes = [
     type: "dark",
     unlocked: true
   },
-  // {
-  //   id: "leaf",
-  //   name: "Leaf",
-  //   type: "dark",
-  //   unlocked: true
-  // },
-  // {
-  //   id: "redcomet",
-  //   name: "RedComet",
-  //   type: "dark",
-  //   unlocked: true
-  // },
-  // {
-  //   id: "purple-prime",
-  //   name: "Purple Prime",
-  //   type: "dark",
-  //   unlocked: true
-  // },
-  // {
-  //   id: "blueberry",
-  //   name: "Blueberry",
-  //   type: "dark",
-  //   unlocked: true
-  // },
-  // {
-  //   id: "blue-dark",
-  //   name: "Blue Dark",
-  //   type: "dark",
-  //   unlocked: true
-  // },
-  // {
-  //   id: "purple-max",
-  //   name: "Purple Max",
-  //   type: "dark",
-  //   unlocked: true
-  // },
 ]
 
-const ThemePicker = ({ theme, setTheme }) => {
+let ThemePicker = ({ theme, setTheme }) => {
   return (
   <div className="palette__theme-container">
     {myThemes.map((item, index) => (
