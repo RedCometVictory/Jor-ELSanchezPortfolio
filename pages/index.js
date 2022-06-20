@@ -9,10 +9,8 @@ import Footer from "../components/sections/Footer";
 import Dots from "../components/svgs/shapes/Dots";
 import avatar from "../public/images/avatars/24633082.jpg";
 import Computer from "../public/svg/undraw_programming_re_kg9v.svg";
-import Blob01 from "../components/svgs/shapes/Blob01";
 import Circle01 from "../components/svgs/shapes/Circle01";
 import Circle02 from "../components/svgs/shapes/Circle02";
-// import Computer from "../public/png/undraw_Programming_re_kg9v.png";
 
 const Home = () => {
   const { theme, switchTheme } = useContext(ThemeContext);
@@ -33,7 +31,6 @@ const Home = () => {
             <div className="decor">
               <div className="decor__slice">
                 <div className="decor__group--01">
-                  {/* <Blob01 /> */}
                   <div className="decor__svg-computer">
                     <Image
                       src={Computer}

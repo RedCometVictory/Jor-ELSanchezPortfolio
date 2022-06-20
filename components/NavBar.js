@@ -52,11 +52,8 @@ const NavBar = () => {
           <ThemeSelectModal show={showThemes} showHandler={isShowThemes} />
         </SpringIn>
         <ul className="nav__links small">
-          {/* <div className="nav__menu-toggle" onClick={() => showSlideMenu(!showSlideMenu)}> */}
           <div
             className={`nav__menu-toggle ${slideMenu ? "active" : ""}`}
-            // className={`nav__menu-toggle`}
-            // onClick={() => showSlideMenu(!showSlideMenu)}
             onClick={() => slideMenuHandler()}
           >
             <GiHamburgerMenu />

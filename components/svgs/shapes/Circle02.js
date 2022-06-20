@@ -3,7 +3,13 @@ import React from 'react'
 const Circle02 = () => {
   return (
     <div className='hero__circle--02'>
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" xmlnsSvgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800" opacity="1">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        xmlnssvgjs="http://svgjs.dev/svgjs"
+        viewBox="0 0 800 800" opacity="1"
+      >
         <defs>
           <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="vvvortex-grad">
             <stop className="theme__primary-color" stopColor="hsl(1.4, 100%, 67%)" stopOpacity="1" offset="0%"></stop>

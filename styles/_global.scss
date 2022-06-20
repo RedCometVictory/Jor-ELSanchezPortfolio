@@ -242,22 +242,6 @@ a {
     padding: 1rem 0 0 0;
     z-index: 100;
   }
-  // ORIGINAL
-  // &__img-container {
-  //   border-radius: 50%;
-  //   height: 180px;
-  //   width: 180px;
-  //   align-self: flex-end;
-  //   position: absolute;
-  //   top: 43%;
-  //   right: 8%;
-  //   transition: 700ms ease;
-  //   span {
-  //     @include flex(row, center, center);
-  //     height: 100%;
-  //     width: 100%;
-  //   }
-  // }
   &__img-container {
     border-radius: 50%;
     height: 180px;
