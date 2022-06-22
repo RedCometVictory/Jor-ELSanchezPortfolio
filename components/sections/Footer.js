@@ -7,7 +7,7 @@ const YOUR_TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
 const YOUR_USER_ID = process.env.NEXT_PUBLIC_USER_ID;
 const CAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
-const Footer = () => {
+const Footer = ({contactRef}) => {
   const [validEmail, iSValidEmail] = useState(false);
   const formRef = useRef();
   const captchaRef = useRef();
@@ -37,7 +37,7 @@ const Footer = () => {
       iSValidEmail(false);
   }
   return (
-    <footer className="footer">
+    <footer className="footer" ref={contactRef}>
       <div className="footer__container">
         <div className="footer__contact">
           <h3>Want to contact me?</h3>

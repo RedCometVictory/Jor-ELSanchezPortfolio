@@ -29,6 +29,19 @@ a {
   width: 100%;
   max-width: 75rem; // 1200px
 }
+
+.scroll {
+  background: linear-gradient(35deg, var(--secondary-color), var(--primary-color));
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  @include flex(row, center, center);
+  position: fixed;
+  bottom: 6rem;
+  cursor: pointer;
+  right: 2rem;
+  z-index: 300;
+}
   
 .nav {
   // max-width: 90rem; // 1440px
@@ -50,10 +63,10 @@ a {
     left: 1.2rem;
     cursor: pointer;
     &:hover {
-      color: pink;
+      color: var(--color-text);
     }
     &.active {
-      color: pink;
+      color: var(--color-text);
     }
   }
   &__link-item {
@@ -93,12 +106,16 @@ a {
     padding: 1.45rem 2.125rem 1rem;
     text-align: center;
     border-radius: 4px;
+    cursor: default;
     background-color: var(--color-navbar-a);
     z-index: 200;
   }
   &__slide-link-item {
     list-style-type: none;
     padding: 0.425rem 0;
+    p {
+      cursor: pointer;
+    }
   }
 }
 
@@ -138,6 +155,7 @@ a {
     max-width: 300px;
     width: max-content;
     padding: 10px;
+    cursor: default;
   }
 
   &__circle {
@@ -380,6 +398,7 @@ a {
   }
   &__recaptcha {
     height: 6.725rem;
+    margin: 0 0 2.125rem 0;
     .recaptcha {
       width: 100%;
     }
@@ -536,6 +555,9 @@ a {
   .form {
     &__ctrl {
       @include flex(row, space-between, flex-start);
+    }
+    &__recaptcha {
+      margin: initial;
     }
   }
 }

@@ -69,10 +69,9 @@ let cards = [
   // }
 ];
 
-const Projects = () => {
-
+const Projects = ({projectRef}) => {
   return (
-    <section className="projects">
+    <section className="projects" ref={projectRef}>
       <h2 className="projects__header section-header">
         Portfolio Projects
       </h2>

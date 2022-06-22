@@ -1,15 +1,11 @@
-import CSS from '../../components/svgs/icons/CSS';
 import Express from '../../components/svgs/icons/Express';
-import Git from '../../components/svgs/icons/Git';
 import Gulp from '../../components/svgs/icons/Gulp';
-import Html from '../../components/svgs/icons/Html';
 import JavaScript from '../../components/svgs/icons/JavaScript';
 import Laravel from '../../components/svgs/icons/Laravel';
 import Markdown from '../../components/svgs/icons/Markdown';
 import MongoDB from '../../components/svgs/icons/MongoDB';
 import MySQL from '../../components/svgs/icons/MySQL';
 import NextJS from '../../components/svgs/icons/NextJS';
-import NodeJS from '../../components/svgs/icons/NodeJS';
 import PHP from '../../components/svgs/icons/PHP';
 import PostgreSQL from '../../components/svgs/icons/PostgreSQL';
 import ReactJS from '../../components/svgs/icons/ReactJS';
@@ -18,9 +14,9 @@ import SASS from '../../components/svgs/icons/SASS';
 import TypeScript from '../../components/svgs/icons/TypeScript';
 import Webpack from '../../components/svgs/icons/Webpack';
 
-const Skills = () => {
+const Skills = ({skillsRef}) => {
   return (
-    <section className="skills">
+    <section className="skills" ref={skillsRef}>
       <div className="skills__content">
         <h2 className="skills__header">Core Skills</h2>
         <div className="skills__desc">

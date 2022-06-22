@@ -1,19 +1,17 @@
 import { useState, useContext } from "react";
 import { ThemeContext } from "use-theme-switcher";
-import Link from "next/link";
-import { FaPalette, FaChevronLeft } from "react-icons/fa";
+import { FaPalette } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import ThemePicker from './ThemePicker';
 import SpringIn from "./animations/SpringIn";
 import SpringInMenu from "./animations/SpringInMenu";
 
-const NavBar = () => {
+const NavBar = ({scrollToSection, skillsRef, projectRef, contactRef}) => {
   const { theme, switchTheme } = useContext(ThemeContext);
   const [slideMenu, showSlideMenu] = useState(false);
   const [showThemes, isShowThemes] = useState(false);
 
   const slideMenuHandler = () => {
-    console.log("handler active")
     showSlideMenu(!slideMenu)
   };
 
@@ -28,20 +26,19 @@ const NavBar = () => {
       </section>
     );
   };
-  
-  let activeSlide = slideMenu ? 'active' : '';
+
   return (
     <header className="nav nav__container">
       <SpringInMenu isVisible={slideMenu}>
         <nav className="nav__slide-menu">
           <ul className="nav__slide-links slide">
-            <li className="nav__slide-link-item">
+            <li className="nav__slide-link-item" onClick={() => scrollToSection(skillsRef)}>
               <p>Skills</p>
             </li>
-            <li className="nav__slide-link-item">
+            <li className="nav__slide-link-item" onClick={() => scrollToSection(projectRef)}>
               <p>Projects</p>
             </li>
-            <li className="nav__slide-link-item">
+            <li className="nav__slide-link-item" onClick={() => scrollToSection(contactRef)}>
               <p>Contact</p>
             </li>
           </ul>
@@ -58,13 +55,13 @@ const NavBar = () => {
           >
             <GiHamburgerMenu />
           </div>
-          <li className="nav__link-item horizontal">
+          <li className="nav__link-item horizontal" onClick={() => scrollToSection(skillsRef)}>
             <p>Skills</p>
           </li>
-          <li className="nav__link-item horizontal">
+          <li className="nav__link-item horizontal" onClick={() => scrollToSection(projectRef)}>
             <p>Projects</p>
           </li>
-          <li className="nav__link-item horizontal">
+          <li className="nav__link-item horizontal" onClick={() => scrollToSection(contactRef)}>
             <p>Contact</p>
           </li>
           <li className="nav__link-item">
