@@ -37,7 +37,7 @@ a {
   border-radius: 50%;
   @include flex(row, center, center);
   position: fixed;
-  bottom: 6rem;
+  bottom: 4rem;
   cursor: pointer;
   right: 2rem;
   z-index: 300;
@@ -97,6 +97,10 @@ a {
     }
     &:hover {
       color: var(--color-text-hover);
+      // try to exclude pallete from this effect
+      &:last-child {
+        color: var(--primary-color);
+      }
     }
   }
   &__slide-menu {
@@ -143,9 +147,6 @@ a {
   &__theme-select {
     margin: 4px 0 0 0;
     display: flex;
-    &.active {
-      color: var(--color-navbar-active);
-    }
   }
 
   &__theme-container {
@@ -398,7 +399,7 @@ a {
   }
   &__recaptcha {
     height: 6.725rem;
-    margin: 0 0 2.125rem 0;
+    margin: 0 0 3.425rem 0;
     .recaptcha {
       width: 100%;
     }
