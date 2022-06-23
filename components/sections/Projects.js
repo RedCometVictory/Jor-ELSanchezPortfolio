@@ -41,7 +41,7 @@ let cards = [
     description: "Newt, a simple job board that fetches data from the Findwork public API. This is the first application I built using NextJS. This project was a means of learning some of the base features such as Server Side Rendering."
   },
   {
-    url: "https://zuitblog.herokuapp.com",
+    url: "https://zuitblog.vercel.app",
     repo: "https://github.com/RedCometVictory/blogger-app",
     title: "Zuit",
     type: "Blog",
