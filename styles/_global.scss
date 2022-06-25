@@ -420,6 +420,7 @@ a {
 .footer {
   width: 90%;
   margin: 0 auto;
+  max-width: 75rem;
   &__container {
     @include flex(column, space-between, center);
     padding: 0 0 4.475rem 0;
@@ -775,6 +776,11 @@ a {
   .decor {
     &__item--01 {
       right: 3%;
+    }
+  }
+  .footer {
+    &__form {
+      padding: 0 2.225rem 0 0;
     }
   }
 }
