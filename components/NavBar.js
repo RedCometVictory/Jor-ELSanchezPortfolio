@@ -65,7 +65,9 @@ const NavBar = ({scrollToSection, skillsRef, projectRef, contactRef}) => {
             <p>Contact</p>
           </li>
           <li className="nav__link-item">
-            <button>Resume</button>
+            <button>
+              <a href="https://drive.google.com/file/d/1NS-q2_OD78hGDXsOgb7pfz8M9cU3gkws/view" target="_blank" rel="noreferrer">Resume</a>
+            </button>
           </li>
           <li className="nav__link-item">
             <div
