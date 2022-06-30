@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react';
 import emailjs from "emailjs-com";
 import ReCAPTCHA from 'react-google-recaptcha';
+import LinkedIn from '../svgs/findme/LinkedIn';
+import GitHub from '../svgs/findme/GitHub';
 
 const YOUR_SERVICE_ID = process.env.NEXT_PUBLIC_SERVICE_ID;
 const YOUR_TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
@@ -47,6 +49,10 @@ const Footer = ({contactRef}) => {
             <div className="email-address">
               <p>acemiranda0093@att.net</p>
             </div>
+          </div>
+          <div className="footer__findme-urls">
+            <LinkedIn />
+            <GitHub />
           </div>
         </div>
         <form onSubmit={sendEmail} className="footer__form form" ref={formRef}>
