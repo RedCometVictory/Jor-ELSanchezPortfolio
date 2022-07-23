@@ -1,6 +1,6 @@
 const LinkedIn = () => {
   return (
-    <div className="skills__icon-box">
+    <div className="skills__icon-box contact-icons">
       <a href="https://www.linkedin.com/in/jor-elsanchez" target="_blank" rel="noreferrer">
         <defs>
           <linearGradient id="header-shape-gradient" gradientTransform="rotate(115)">

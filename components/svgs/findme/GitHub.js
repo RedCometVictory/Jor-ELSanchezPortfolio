@@ -1,6 +1,6 @@
 const GitHub = () => {
   return (
-    <div className="skills__icon-box">
+    <div className="skills__icon-box contact-icons">
       <a href="https://github.com/RedCometVictory" target="_blank" rel="noreferrer">
         <defs>
           <linearGradient id="header-shape-gradient" gradientTransform="rotate(115)">

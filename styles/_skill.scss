@@ -20,21 +20,48 @@
     margin: 0;
   }
   &__icon-container {
-    @include grid(repeat(2, 100px), 2, center, center);
+    // @include grid(repeat(2, 100px), 2, center, center); // ---
+    @include grid(repeat(2, 128px), 2, space-around, center);
     row-gap: 2.75rem;
+    column-gap: 0.2rem;
   }
   &__icon-box {
-    justify-self: center;
+    justify-self: center; // ---
+    width: 7.88rem;
+    padding: 1rem 1rem;
+    background-color: var(--skill-icon-box-a);
+    border: 2px solid var(--skill-icon-box-border-a);
+    border-radius: 12px;
     svg {
       margin: 0 auto;
       width: 100%;
     }
+    &.contact-icons {
+      border: unset;
+      border-radius: unset;
+      width: unset;
+      padding: unset;
+      background-color: unset;
+    }
   }
   &__icon-name-bg {
-    background-color: rgba(0,0,0,0.35);
+    // background-color: rgba(0,0,0,0.35);
+    background-color: var(--icon-name-a);
     padding: 0.25rem 0.5rem;
     border-radius: 10px;
     margin: 0.75rem 0 0 0;
+    text-align: center;
+  }
+}
+
+@media (min-width: 260px) {
+  .skills {
+    &__icon-container {
+      column-gap: 0.5rem;
+    }
+    &__icon-box {
+      width: 8rem;
+    }
   }
 }
 
@@ -49,32 +76,46 @@
     &__desc {
       padding: 1rem 0 2.115rem;
     }
+    &__icon-container {
+      column-gap: 1rem;
+    }
   }
 }
 
-@media (min-width: 334px) {
+// @media (min-width: 334px) {
+@media (min-width: 420px) {
   .skills {
     &__icon-container {
-      @include grid(repeat(3, 100px), 2, center, center);
-      row-gap: 2.75rem;
+      @include grid(repeat(3, 1fr), 2, space-around, center);
+      column-gap: 0.5rem;
     }
   }
 };
 
-@media (min-width: 536px) {
+@media (min-width: 460px) {
   .skills {
     &__icon-container {
-      @include grid(repeat(4, 100px), 2, center, center);
-      row-gap: 2.75rem;
+      @include grid(repeat(3, 1fr), 2, space-around, center);
+      column-gap: 1rem;
     }
   }
 };
 
-@media (min-width: 656px) {
+// @media (min-width: 536px) {
+@media (min-width: 620px) {
   .skills {
     &__icon-container {
-      @include grid(repeat(5, 100px), 2, center, center);
-      row-gap: 2.75rem;
+      @include grid(repeat(4, 1fr), 2, center, center);
+    }
+  }
+};
+
+// @media (min-width: 656px) {
+@media (min-width: 780px) {
+  .skills {
+    &__icon-container {
+      // @include grid(repeat(5, 100px), 2, center, center);
+      @include grid(repeat(5, 1fr), 2, center, center);
     }
   }
 };
