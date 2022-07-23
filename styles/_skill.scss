@@ -28,7 +28,7 @@
   &__icon-box {
     justify-self: center; // ---
     width: 7.88rem;
-    padding: 1rem 1rem;
+    padding: 1rem 0.775rem;
     background-color: var(--skill-icon-box-a);
     border: 2px solid var(--skill-icon-box-border-a);
     border-radius: 12px;
@@ -46,7 +46,10 @@
   }
   &__icon-name-bg {
     // background-color: rgba(0,0,0,0.35);
-    background-color: var(--icon-name-a);
+    // background-color: rgba(255, 48, 0, 0.09);
+    // background-color: rgba(255, 48, 0, 0.12);
+    // border: 0px solid var(--skill-icon-box-border-a);
+    background-color: var(--icon-name-a); // ---
     padding: 0.25rem 0.5rem;
     border-radius: 10px;
     margin: 0.75rem 0 0 0;

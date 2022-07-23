@@ -38,7 +38,7 @@
   --skill-icon-box: rgb(234, 51, 51);
   --skill-icon-box-a: rgba(234, 51, 51, 0.12);
   --skill-icon-box-border-a: rgba(234, 51, 51, 0.12);
-  --icon-name-a: rgba(234, 51, 51, 0.35);
+  --icon-name-a: rgba(255, 48, 0, 0.12);
 }
 
 .theme-sky {
@@ -78,9 +78,10 @@
   --bg-quatenary: rgb(255, 255, 255);
   --bg-panel: rgb(204, 197, 214);
   --skill-icon-box: rgb(53, 224, 181);
-  --skill-icon-box-a: rgba(53, 224, 181, 0.07);
+  // --skill-icon-box-a: rgba(53, 224, 181, 0.07);
+  --skill-icon-box-a: rgba(41, 197, 158, 0.062);
   --skill-icon-box-border-a: rgba(53, 224, 181, 0.45);
-  --icon-name-a: rgba(53, 224, 181, 0.45);
+  --icon-name-a: rgba(53, 224, 181, 0.33);
 }
 
 .theme-dark {
@@ -124,6 +125,8 @@
   --skill-icon-box-a: rgba(161, 51, 234, 0.11);
   --skill-icon-box-border-a: rgba(161, 51, 234, 0.6);
   --icon-name-a: rgba(161, 51, 234, 0.24);
+  // --icon-name-a: rgba(199, 103, 255, 0.24);
+  --icon-name-a: rgba(189, 74, 255, 0.212);
 }
 
 .theme-midnight {
