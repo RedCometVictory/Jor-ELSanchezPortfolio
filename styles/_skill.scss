@@ -20,7 +20,6 @@
     margin: 0;
   }
   &__icon-container {
-    // @include grid(repeat(2, 100px), 2, center, center); // ---
     @include grid(repeat(2, 128px), 2, space-around, center);
     row-gap: 2.75rem;
     column-gap: 0.2rem;
@@ -30,7 +29,6 @@
     width: 7.88rem;
     padding: 1rem 0.775rem;
     background-color: var(--skill-icon-box-a);
-    border: 2px solid var(--skill-icon-box-border-a);
     border-radius: 12px;
     svg {
       margin: 0 auto;
@@ -45,11 +43,7 @@
     }
   }
   &__icon-name-bg {
-    // background-color: rgba(0,0,0,0.35);
-    // background-color: rgba(255, 48, 0, 0.09);
-    // background-color: rgba(255, 48, 0, 0.12);
-    // border: 0px solid var(--skill-icon-box-border-a);
-    background-color: var(--icon-name-a); // ---
+    background-color: var(--bg-primary); // ---
     padding: 0.25rem 0.5rem;
     border-radius: 10px;
     margin: 0.75rem 0 0 0;
@@ -85,7 +79,6 @@
   }
 }
 
-// @media (min-width: 334px) {
 @media (min-width: 420px) {
   .skills {
     &__icon-container {
@@ -104,7 +97,6 @@
   }
 };
 
-// @media (min-width: 536px) {
 @media (min-width: 620px) {
   .skills {
     &__icon-container {
@@ -113,11 +105,9 @@
   }
 };
 
-// @media (min-width: 656px) {
 @media (min-width: 780px) {
   .skills {
     &__icon-container {
-      // @include grid(repeat(5, 100px), 2, center, center);
       @include grid(repeat(5, 1fr), 2, center, center);
     }
   }
