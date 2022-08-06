@@ -5,16 +5,48 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import Image from "next/image";
-import Link from "next/link";
-import { VscPreview } from "react-icons/vsc";
+import { BsInfoCircleFill } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 
 const Card = ({card}) => {
   const [read, setRead] = useState(false);
+  const [toggleDesc, isToggleDesc] = useState(false);
+
+  const toggleDescriptionHandler = () => {
+    isToggleDesc(!toggleDesc);
+  };
   
   return (
     <div className="card__outer">
       <article className="card">
+        <div className={`card__info-toggle ${toggleDesc ? 'active' : ''}`}>
+          <div className="card__desc">
+            {read ? (
+              <div className="card__toggle-desc">
+                <div className="card__description">
+                  {card.description}
+                </div>
+              </div>
+            ) : (
+              <div className="card__tech">
+                <div className="card__tech-list">
+                  {card.tech.map((item, index) => (
+                    <div className="card__tech-item" key={index}>
+                      <div className="">{item}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="card__toggle-btns">
+            <div className="desc-btns">
+              <button className={`tech desc-btn ${!read ? 'diag-cross' : ''}`} onClick={e => setRead(false)}>Tech</button>
+              <button className={`read desc-btn ${read ? 'diag-cross' : ''}`} onClick={e => setRead(true)}>Read</button>
+            </div>
+            <button className="close-btn" onClick={() => toggleDescriptionHandler()}>X</button>
+          </div>
+        </div>
         <div className="card__viewport">
           <Swiper
             className='product-images-slider'
@@ -45,9 +77,12 @@ const Card = ({card}) => {
         </div>
         <div className="card__info">
           <div className="card__links">
+            <div className="card__link-btn info-icon">
+              <BsInfoCircleFill onClick={() => toggleDescriptionHandler()} />
+            </div>
             <div className="card__link-btn site-icon">
               <a href={card.url} target="_blank" rel="noopener noreferrer">
-                <VscPreview />
+                <div>LIVE</div>
               </a>
             </div>
             <div className="card__link-btn git-icon">
@@ -60,29 +95,6 @@ const Card = ({card}) => {
             <h3 className="card__title">{card.title}</h3>
             <h4>{card.type}</h4>
           </header>
-        </div>
-        <div className="card__content">
-          <div className="card__view">
-            <div className={!read ? 'active' : ''} onClick={e => setRead(false)}>Tech</div>
-            <div className={read ? 'active' : ''} onClick={e => setRead(true)}>Read</div>
-          </div>
-          <div className="card__desc">
-            {read ? (
-              <div className="card__description">
-                {card.description}
-              </div>
-            ) : (
-              <div className="card__tech">
-                <div className="card__tech-list">
-                  {card.tech.map((item, index) => (
-                    <div className="card__tech-item" key={index}>
-                      <div className="">{item}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
         </div>
       </article>
     </div>

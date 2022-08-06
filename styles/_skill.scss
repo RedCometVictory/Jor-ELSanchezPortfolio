@@ -21,15 +21,14 @@
   }
   &__icon-container {
     @include grid(repeat(2, 128px), 2, space-around, center);
-    row-gap: 2.75rem;
-    column-gap: 0.2rem;
+    row-gap: 1.75rem;
   }
   &__icon-box {
     justify-self: center; // ---
     width: 7.88rem;
     padding: 1rem 0.775rem;
-    background-color: var(--skill-icon-box-a);
-    border-radius: 12px;
+    border: 2px solid var(--skill-icon-box-a);
+    border-radius: 2px;
     svg {
       margin: 0 auto;
       width: 100%;
@@ -53,9 +52,6 @@
 
 @media (min-width: 260px) {
   .skills {
-    &__icon-container {
-      column-gap: 0.5rem;
-    }
     &__icon-box {
       width: 8rem;
     }
@@ -73,26 +69,13 @@
     &__desc {
       padding: 1rem 0 2.115rem;
     }
-    &__icon-container {
-      column-gap: 1rem;
-    }
   }
 }
-
-@media (min-width: 420px) {
-  .skills {
-    &__icon-container {
-      @include grid(repeat(3, 1fr), 2, space-around, center);
-      column-gap: 0.5rem;
-    }
-  }
-};
 
 @media (min-width: 460px) {
   .skills {
     &__icon-container {
       @include grid(repeat(3, 1fr), 2, space-around, center);
-      column-gap: 1rem;
     }
   }
 };

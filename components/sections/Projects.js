@@ -34,7 +34,7 @@ let cards = [
   {
     url: "https://job-board-newt.vercel.app",
     repo: "https://github.com/RedCometVictory/job-board-newt",
-    title: "Newt - Simple Job Search",
+    title: "Newt",
     type: "Job Board via Public API",
     images: [newt_01, newt_02],
     tech: ["NextJS" , "React Hooks", "FindworkAPI"],
